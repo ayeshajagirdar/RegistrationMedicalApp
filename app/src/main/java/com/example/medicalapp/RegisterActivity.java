@@ -22,7 +22,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView register, btn;
-    private EditText userName,email, password, confirmPassword;
+    private EditText userName,email, password, phone, confirmPassword;
     private Button btnregister;
     private FirebaseAuth mAuth;
     @Override
@@ -53,6 +53,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         String emailAdress = email.getText().toString().trim();
         String pw = password.getText().toString().trim();
         String cpw = confirmPassword.getText().toString().trim();
+        String num = phone.getText().toString().trim();
 
         if(name.isEmpty()){
             userName.setError("Name is required");
@@ -68,6 +69,15 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             email.setError("Please provide valid email");
             email.requestFocus();
             return;
+        }
+        if (num.isEmpty()){
+            phone.setError("Phone number is required");
+            phone.requestFocus();
+            return;
+        }
+        if (num.length() < 10){
+            phone.setError("Enter 10 digit number");
+            phone.requestFocus();
         }
         if(pw.isEmpty()){
             password.setError("Password is required");
@@ -88,14 +98,14 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     @Override
                     public void onComplete(@NonNull @org.jetbrains.annotations.NotNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            User user = new User(name, emailAdress);
+                            User user = new User(name, emailAdress, num);
                             FirebaseDatabase.getInstance().getReference("users")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull @NotNull Task<Void> task) {
                                     if(task.isSuccessful()){
-                                        Toast.makeText(RegisterActivity.this, "User has been Registered successfully!", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(RegisterActivity.this, "Registered successfully!", Toast.LENGTH_LONG).show();
                                         startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                                     }
                                     else {
@@ -119,6 +129,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         email = findViewById(R.id.inputEmail);
         password = findViewById(R.id.inputPassword);
         confirmPassword = findViewById(R.id.inputConfirmPassword);
+        phone = findViewById(R.id.inputPhoneNumber);
         btnregister = findViewById(R.id.Register);
     }
 }
