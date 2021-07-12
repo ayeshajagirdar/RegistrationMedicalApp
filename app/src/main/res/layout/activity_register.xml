@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@style/Theme.MedicalApp.NoActionBar"
     tools:context=".RegisterActivity">
 
     <TextView
@@ -88,6 +89,7 @@
         app:layout_constraintStart_toStartOf="@+id/inputEmail"
         app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
 
+
     <EditText
         android:id="@+id/inputPassword"
         android:layout_width="0dp"
@@ -97,7 +99,7 @@
         android:drawableLeft="@drawable/ic_password"
         android:drawablePadding="10dp"
         android:ems="10"
-        android:hint="Password"
+        android:hint="@string/password"
         android:inputType="textPassword"
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
@@ -106,6 +108,12 @@
         app:layout_constraintEnd_toEndOf="@+id/inputPhoneNumber"
         app:layout_constraintStart_toStartOf="@+id/inputPhoneNumber"
         app:layout_constraintTop_toBottomOf="@+id/inputPhoneNumber" />
+
+    <CheckBox
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="show"
+        android:textSize="25sp"/>
 
     <EditText
         android:id="@+id/inputConfirmPassword"
@@ -125,7 +133,6 @@
         app:layout_constraintEnd_toEndOf="@+id/inputPassword"
         app:layout_constraintStart_toStartOf="@+id/inputPassword"
         app:layout_constraintTop_toBottomOf="@+id/inputPassword" />
-
     <Button
         android:id="@+id/Register"
         android:layout_width="0dp"
@@ -138,7 +145,8 @@
         app:layout_constraintEnd_toEndOf="@+id/inputConfirmPassword"
         app:layout_constraintStart_toStartOf="@+id/inputConfirmPassword"
         app:layout_constraintTop_toBottomOf="@+id/inputConfirmPassword"
-        app:layout_editor_absoluteY="478dp" />
+        app:layout_editor_absoluteY="478dp"
+        tools:ignore="NotSibling" />
 
     <TextView
         android:id="@+id/alreadyHaveAnAccount"

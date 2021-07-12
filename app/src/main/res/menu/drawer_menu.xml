@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_upload"
+            android:icon="@drawable/ic_upload"
+            android:title="Upload Rx"/>
+        <item android:id="@+id/nav_myProfile"
+            android:icon="@drawable/ic_myprofile"
+            android:title="My Profile"/>
+        <item android:id="@+id/nav_myorders"
+            android:icon="@drawable/ic_myorders"
+            android:title="My Orders"/>
+        <item android:id="@+id/nav_TermsandConditions"
+            android:icon="@drawable/ic_terms"
+            android:title="Terms and Conditions"/>
+        <item android:id="@+id/nav_faq"
+            android:icon="@drawable/ic_faq"
+            android:title="FAQ'S"/>
+        <item android:id="@+id/nav_contact"
+            android:icon="@drawable/ic_email"
+            android:title="Contact"/>
+        <item android:id="@+id/nav_Logout"
+            android:icon="@drawable/ic_logout"
+            android:title="Logout"/>
+
+    </group>
+<item android:title="© 2021.All Rights Are Reserved" />
+</menu>

@@ -34,6 +34,7 @@ public class MyProfileActivity extends AppCompatActivity {
         user = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("users");
         userID = user.getUid();
+
         
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

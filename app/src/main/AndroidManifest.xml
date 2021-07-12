@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.medicalapp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,17 +11,36 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MedicalApp">
-        <activity android:name=".MyProfileActivity"></activity>
-        <activity android:name=".ForgotPassword" />
-        <activity android:name=".LoginActivity">
+        <activity
+            android:name=".MyOrders"
+            android:label="@string/title_activity_my_orders"></activity>
+        <activity
+            android:name=".FAQ"
+            android:parentActivityName=".TermsAndConditionsActivity" />
+        <activity android:name=".LogoutActivity" />
+        <activity
+            android:name=".TermsAndConditionsActivity"
+            android:parentActivityName=".MyProfileActivity" />
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".UploadActivity" />
+        <activity
+            android:name=".ContactActivity"
+            android:parentActivityName=".FAQ" />
+        <activity
+            android:name=".MyProfileActivity"
+            android:parentActivityName=".UploadActivity" />
+        <activity android:name=".ForgotPassword" />
+        <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/Theme.MedicalApp"/>
     </application>
 
 </manifest>
